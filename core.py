@@ -7,6 +7,7 @@ import os
 import re
 import csv
 import json
+import sys
 import time
 import pickle
 from datetime import datetime
@@ -20,7 +21,14 @@ from googleapiclient.errors import HttpError
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 VIDEO_EXTENSIONS = {".mp4", ".mov", ".avi", ".mkv", ".webm", ".m4v"}
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# PyInstaller ile .exe'ye derlenince __file__ geçici bir açılış klasörünü
+# gösterir (her çalıştırmada silinir); bu yüzden derlenmiş halde ayarları/
+# geçmişi .exe'nin GERÇEK konumunun yanına yazıyoruz, kaynak koddan
+# çalışırken ise script'in bulunduğu klasöre.
+if getattr(sys, "frozen", False):
+    BASE_DIR = os.path.dirname(os.path.abspath(sys.executable))
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
 TOKEN_PATH = os.path.join(BASE_DIR, "token.pickle")
 PROGRESS_PATH = os.path.join(BASE_DIR, "progress.json")

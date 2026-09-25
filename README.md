@@ -27,7 +27,26 @@ tek seferlik ve ~5-10 dakika sürer; adım adım, ekran ekran anlatan
 rehber için bkz. **[API_ANAHTARI_ALMA_REHBERI.md](API_ANAHTARI_ALMA_REHBERI.md)**
 — bu dosyayı doğrudan 50 kişiye repo ile birlikte iletebilirsiniz.
 
-## Kurulum (GitHub'dan)
+## Kurulum — İki yol var
+
+### Yol A: Hazır .exe indirin (Python kurmaya gerek yok, önerilen — özellikle teknik olmayan kullanıcılar için)
+
+Reponun sağ tarafındaki **"Releases"** bölümünden (ya da doğrudan
+`https://github.com/BuRsTFiRe47/youtube-toplu-yukleme/releases`) en son
+sürümdeki **`YoutubeTopluYukleme.exe`** dosyasını indirin, istediğiniz
+bir klasöre koyun, çift tıklayıp açın. Python kurmanıza, `pip install`
+çalıştırmanıza gerek yok — GUI doğrudan çalışır.
+
+> ⚠️ İlk açılışta Windows **"Windows protected your PC" / SmartScreen**
+> uyarısı gösterebilir (exe dijital olarak imzalanmadığı için, bu
+> normaldir). **"More info" (Daha fazla bilgi)** → **"Run anyway"
+> (Yine de çalıştır)** diyerek devam edin.
+
+Her durumda, videolarınızı yükleyebilmek için ayrıca kendi
+`client_secret.json` dosyanızı almanız gerekiyor — bkz.
+[API_ANAHTARI_ALMA_REHBERI.md](API_ANAHTARI_ALMA_REHBERI.md).
+
+### Yol B: Kaynak koddan çalıştırın (geliştiriciler / Mac-Linux kullanıcıları için)
 
 ```bash
 git clone https://github.com/BuRsTFiRe47/youtube-toplu-yukleme.git
@@ -38,6 +57,21 @@ pip install -r requirements.txt
 > Not: Python kurulumunda (özellikle Windows'ta) "tcl/tk" bileşeninin
 > seçili olduğundan emin olun — arayüz (tkinter) bunu kullanır ve
 > python.org'dan indirilen standart kurulumda varsayılan olarak gelir.
+
+## .exe nasıl otomatik üretiliyor?
+
+Repoya eklenen `.github/workflows/build-release.yml` sayesinde, siz bir
+**sürüm etiketi (tag)** push ettiğinizde GitHub kendi sunucusunda
+otomatik olarak Windows `.exe` derler ve **Releases** sayfasına ekler
+— elle bir şey derlemenize gerek yok. Yeni bir sürüm yayınlamak için:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Birkaç dakika içinde "Actions" sekmesinde derleme tamamlanır ve
+"Releases" sayfasında `YoutubeTopluYukleme.exe` belirir.
 
 ### Her kullanıcı ne yapacak?
 
