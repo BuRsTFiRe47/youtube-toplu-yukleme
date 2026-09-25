@@ -1,0 +1,11 @@
+{
+  "video_klasoru": "",
+  "client_secrets_dosyasi": "client_secret.json",
+  "ozel_aciklama_metni": "",
+  "gizlilik": "unlisted",
+  "tarih_deseni": "\\d{4}[-_.]\\d{2}[-_.]\\d{2}",
+  "baslik_sablonu": "{tarih} - {dosya_adi}",
+  "aciklama_sablonu": "{baslik}\nTarih: {tarih}\n\n{ozel_metin}",
+  "etiketler": [],
+  "gunluk_yukleme_limiti": 6
+}

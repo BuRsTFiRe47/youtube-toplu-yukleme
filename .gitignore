@@ -1,0 +1,12 @@
+# Kişisel / gizli dosyalar - repoya asla gönderilmesin
+client_secret.json
+token.pickle
+config.json
+progress.json
+yuklenen_videolar.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
